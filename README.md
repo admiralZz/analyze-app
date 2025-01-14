@@ -1,9 +1,18 @@
-package com.admiral.app.conf;
+# Analyze app
 
-import com.admiral.app.analyze.FilterPoint;
+Приложение для анализа **gwt**-приложения, путем вызова классов приложения(из списка) по **http**
 
-import java.util.List;
+## Принцип работы
 
+После запуска, приложение берет названия классов из списка(**Config.FILE_PATH**), делает http-запросы
+и анализирует ответы на основе фильтров(**Config.FILTER_POINTS**). После запросов и анализа, формирует файлы
+со списками, из каждого фильтра.
+
+## Config
+
+Тут перечислены основные настройки приложения:
+
+```java
 public class Config {
     // Фильтры куда отбраются классы по сообщению из ответа
     public static final List<FilterPoint> FILTER_POINTS = List.of(
@@ -21,3 +30,5 @@ public class Config {
     // Основной хост
     public static final String HOST = "http://localhost:8080/PO.Insurance/";
 }
+```
+
